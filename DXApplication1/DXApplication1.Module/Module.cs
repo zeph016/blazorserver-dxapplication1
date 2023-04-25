@@ -53,5 +53,7 @@ public sealed class DXApplication1Module : ModuleBase {
     public override void CustomizeTypesInfo(ITypesInfo typesInfo) {
         base.CustomizeTypesInfo(typesInfo);
         CalculatedPersistentAliasHelper.CustomizeTypesInfo(typesInfo);
+        //Hide Oids
+        //typesInfo.FindTypeInfo(typeof(XPObject)).KeyMember.AddAttribute(new BrowsableAttribute(false));
     }
 }

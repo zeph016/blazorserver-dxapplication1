@@ -3,7 +3,7 @@
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
   </BOModel>
-  <NavigationItems NavigationStyle="Accordion">
+  <NavigationItems NavigationStyle="Accordion" DefaultParentImageName="">
     <Items>
       <Item Id="@131bebdc-d59d-4b9e-af95-83fa2fdcf436" Caption="Shop 132" IsNewNode="True">
         <Items IsNewNode="True">
@@ -30,12 +30,37 @@
   </SchemaModules>
   <Validation>
     <Rules>
+      <RuleRequiredField Id="CategoryNameRequired" TargetCollectionOwnerType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Category" TargetType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Category" TargetPropertyName="CategoryName" TargetContextIDs="Save" IsNewNode="True" />
       <RuleNavigationPermission Id="DevExpress.Persistent.Validation.RuleNavigationPermission_DevExpress.Persistent.Validation.NavigationPermissionRuleObject" Name="DevExpress.Persistent.Validation.RuleNavigationPermission_DevExpress.Persistent.Validation.NavigationPermissionRuleObject" />
       <RuleRequiredField Id="FirstNameRequired" TargetCollectionOwnerType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Customer" TargetCollectionPropertyName="" TargetType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Customer" TargetPropertyName="FirstName" TargetContextIDs="Save" Name="FirstNameRequired" IsNewNode="True" />
+      <RuleValueComparison Id="FreightValueCheck" TargetContextIDs="Save" OperatorType="GreaterThan" RightOperand="0" RightOperandExpression="0" TargetCollectionOwnerType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Order" TargetPropertyName="Freight" TargetType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Order" IsNewNode="True" />
       <RuleRequiredField Id="LastNameRequired" TargetType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Customer" TargetCollectionOwnerType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Customer" TargetPropertyName="LastName" TargetContextIDs="Save" Name="LastNameRequired" IsNewNode="True" />
+      <RuleRequiredField Id="OrderDateRequired" TargetContextIDs="Save" TargetCollectionOwnerType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Order" TargetPropertyName="OrderDate" TargetType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Order" IsNewNode="True" />
+      <RuleRequiredField Id="ProductNameRequired" TargetContextIDs="Save" TargetCollectionOwnerType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Product" TargetPropertyName="ProductName" TargetType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Product" IsNewNode="True" />
     </Rules>
   </Validation>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
+    <DetailView Id="Customer_DetailView">
+      <Items>
+        <PropertyEditor Id="FirstName" Index="" />
+        <PropertyEditor Id="FullName" Index="" />
+        <PropertyEditor Id="LastName" Index="" />
+        <PropertyEditor Id="Oid" Index="" />
+        <PropertyEditor Id="Orders" Index="" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Customer">
+              <LayoutItem Id="FullName" Index="2" />
+            </LayoutGroup>
+            <LayoutGroup Id="XPObject">
+              <LayoutItem Id="Oid" Index="0" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
   </Views>
 </Application>

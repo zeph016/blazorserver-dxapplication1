@@ -13,18 +13,22 @@ using DevExpress.Data.Filtering;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
+using DevExpress.Persistent.Validation;
+
 namespace DXApplication1.Module.BusinessObjects.XPO.ORMDataModel
 {
 
     public partial class Order : XPObject
     {
         DateTime _OrderDate;
+      
         public DateTime OrderDate
         {
             get { return _OrderDate; }
             set { SetPropertyValue<DateTime>(nameof(OrderDate), ref _OrderDate, value); }
         }
         decimal _Freight;
+        //[RuleValueComparison("", DefaultContexts.Save, ValueComparisonType.GreaterThan, 0)]
         public decimal Freight
         {
             get { return _Freight; }

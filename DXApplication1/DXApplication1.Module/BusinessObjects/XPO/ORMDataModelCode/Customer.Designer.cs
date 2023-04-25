@@ -13,15 +13,13 @@ using DevExpress.Data.Filtering;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
-using DevExpress.Persistent.Validation;
-
 namespace DXApplication1.Module.BusinessObjects.XPO.ORMDataModel
 {
 
     public partial class Customer : XPObject
     {
+        [BrowsableAttribute(false)]
         string _FirstName;
-        [RuleRequiredField("FirstNameRequired", DefaultContexts.Save)]
         public string FirstName
         {
             get { return _FirstName; }
