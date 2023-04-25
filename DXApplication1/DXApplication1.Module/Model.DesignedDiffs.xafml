@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="Shop 132 Inc.," Company="Shop 132 Inc.," Logo="Shopping_Package">
+  <BOModel>
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
+  </BOModel>
+  <NavigationItems NavigationStyle="Accordion">
+    <Items>
+      <Item Id="@131bebdc-d59d-4b9e-af95-83fa2fdcf436" Caption="Shop 132" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="Customer_ListView" ViewId="Customer_ListView" ObjectKey="" ImageName="BO_Customer" Caption="Customer" Index="1" IsNewNode="True" />
+          <Item Id="Order_ListView" ViewId="Order_ListView" ObjectKey="" Index="2" ImageName="BO_Order" IsNewNode="True" />
+          <Item Id="Category_ListView" ViewId="Category_ListView" ObjectKey="" Index="3" ImageName="BO_Category" IsNewNode="True" />
+          <Item Id="Product_ListView" ViewId="Product_ListView" ObjectKey="" Index="4" ImageName="Products" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Default">
+        <Items>
+          <Item Id="Category_ListView" Removed="True" />
+          <Item Id="Product_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="22.2.5.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="22.2.5.0" IsNewNode="True" />
+  </SchemaModules>
+  <Validation>
+    <Rules>
+      <RuleNavigationPermission Id="DevExpress.Persistent.Validation.RuleNavigationPermission_DevExpress.Persistent.Validation.NavigationPermissionRuleObject" Name="DevExpress.Persistent.Validation.RuleNavigationPermission_DevExpress.Persistent.Validation.NavigationPermissionRuleObject" />
+      <RuleRequiredField Id="FirstNameRequired" TargetCollectionOwnerType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Customer" TargetCollectionPropertyName="" TargetType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Customer" TargetPropertyName="FirstName" TargetContextIDs="Save" Name="FirstNameRequired" IsNewNode="True" />
+      <RuleRequiredField Id="LastNameRequired" TargetType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Customer" TargetCollectionOwnerType="DXApplication1.Module.BusinessObjects.XPO.ORMDataModel.Customer" TargetPropertyName="LastName" TargetContextIDs="Save" Name="LastNameRequired" IsNewNode="True" />
+    </Rules>
+  </Validation>
+  <Views>
+    <ListView Id="ApplicationUser_ListView" Caption="Users" />
+  </Views>
+</Application>

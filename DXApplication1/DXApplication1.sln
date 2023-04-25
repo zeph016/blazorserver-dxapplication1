@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DXApplication1.Module", "DXApplication1.Module\DXApplication1.Module.csproj", "{8BBFD1C1-C3E2-4B6B-BFD5-698F9F9CF60D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DXApplication1.Blazor.Server", "DXApplication1.Blazor.Server\DXApplication1.Blazor.Server.csproj", "{2F4848AF-3B45-4DAF-AAB4-D2E0EDDF68A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		EasyTest|Any CPU = EasyTest|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BBFD1C1-C3E2-4B6B-BFD5-698F9F9CF60D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BBFD1C1-C3E2-4B6B-BFD5-698F9F9CF60D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BBFD1C1-C3E2-4B6B-BFD5-698F9F9CF60D}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{8BBFD1C1-C3E2-4B6B-BFD5-698F9F9CF60D}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{8BBFD1C1-C3E2-4B6B-BFD5-698F9F9CF60D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BBFD1C1-C3E2-4B6B-BFD5-698F9F9CF60D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F4848AF-3B45-4DAF-AAB4-D2E0EDDF68A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F4848AF-3B45-4DAF-AAB4-D2E0EDDF68A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F4848AF-3B45-4DAF-AAB4-D2E0EDDF68A9}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{2F4848AF-3B45-4DAF-AAB4-D2E0EDDF68A9}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{2F4848AF-3B45-4DAF-AAB4-D2E0EDDF68A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F4848AF-3B45-4DAF-AAB4-D2E0EDDF68A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26607BD8-B08D-4E92-8C19-BED11D46B997}
+	EndGlobalSection
+EndGlobal
