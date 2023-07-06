@@ -14,6 +14,7 @@ using System.Security.Principal;
 using System.Security.Claims;
 using Microsoft.Identity.Web;
 using DevExpress.ExpressApp.Core;
+using DXApplication1.Blazor.Server.Application;
 
 namespace DXApplication1.Blazor.Server;
 
@@ -35,6 +36,7 @@ public class Startup {
         services.AddScoped<CircuitHandler, CircuitHandlerProxy>();
         services.AddXaf(Configuration, builder => {
             builder.UseApplication<DXApplication1BlazorApplication>();
+            //builder.UseApplication<Application.Application>();
             builder.Modules
                 .AddAuditTrailXpo()
                 .AddCloningXpo()

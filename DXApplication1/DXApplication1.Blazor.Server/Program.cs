@@ -1,6 +1,12 @@
 ﻿global using System.Threading.Tasks;
 global using DevExpress.Xpo.DB;
+global using DevExpress.ExpressApp.Blazor;
+global using DevExpress.ExpressApp;
+global using DevExpress.ExpressApp.Templates;
+global using DevExpress.ExpressApp.Blazor.Templates;
 global using DXApplication1.Module.BusinessObjects.XPO.ORMDataModel;
+global using DXApplication1.Blazor.Server.Components;
+global using Microsoft.AspNetCore.Components;
 using System.Reflection;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Blazor.DesignTime;

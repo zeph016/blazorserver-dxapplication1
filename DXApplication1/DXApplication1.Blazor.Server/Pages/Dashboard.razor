@@ -1,0 +1,158 @@
+﻿@page "/dashboard"
+
+<div class="overview-navigation card cw-880">
+    <div class="card-header p-0 demo-bg-transparent">
+        <DxMenu Orientation="Orientation.Horizontal"
+                DropDownActionMode="MenuDropDownActionMode.Click"
+                DisplayMode="MenuDisplayMode.Desktop"
+                Title="DevExpress Logo"
+                CollapseItemToIconMode="MenuCollapseItemToIconMode.All"
+                CollapseItemsToHamburgerMenu="true"
+                CssClass="w-100"
+                ItemClick="@((args) => { if(args.ItemInfo.Name == "LogIn") PopupVisible = true; })">
+            <TitleTemplate>
+                <div class="icon-logo" role="img" aria-label="@context"></div>
+            </TitleTemplate>
+            <Items>
+                <DxMenuItem Text="Home" IconCssClass="menu-icon-home menu-icon">
+                    <Items>
+                        <DxMenuItem Text="News">
+                            <Items>
+                                <DxMenuItem Text="Explore our newest features" />
+                                <DxMenuItem Text="Website news" />
+                            </Items>
+                        </DxMenuItem>
+                        <DxMenuItem Text="Our Mission" />
+                        <DxMenuItem Text="Our Customers" />
+                    </Items>
+                </DxMenuItem>
+                <DxMenuItem Text="Components" IconCssClass="menu-icon-products menu-icon">
+                    <Items>
+                        <DxMenuItem Text="Blazor" />
+                        <DxMenuItem Text="ASP.NET MVC" />
+                        <DxMenuItem Text="ASP.NET Web Forms" />
+                        <DxMenuItem Text="ASP.NET Core" />
+                        <DxMenuItem Text="Blazor" />
+                        <DxMenuItem Text="Bootstrap Web Forms" />
+                    </Items>
+                </DxMenuItem>
+                <DxMenuItem Text="Support" IconCssClass="menu-icon-support menu-icon">
+                    <Items>
+                        <DxMenuItem Text="Getting Started" />
+                        <DxMenuItem Text="Documentation" />
+                        <DxMenuItem Text="Support Center" />
+                        <DxMenuItem Text="Code Examples" />
+                        <DxMenuItem Text="Blogs" />
+                    </Items>
+                </DxMenuItem>
+                <DxMenuItem CssClass="search-menu-item" Position="ItemPosition.End">
+                    <Template>
+                        <SearchItem />
+                    </Template>
+                </DxMenuItem>
+                <DxMenuItem title="Log In" Text="Log In" CssClass="notoggle" IconCssClass="menu-icon-user-profile menu-icon" Name="LogIn" Position="ItemPosition.End">
+                </DxMenuItem>
+            </Items>
+        </DxMenu>
+    </div>
+    <div class="card-body pt-0 d-flex flex-row">
+        <div class="pe-3 pt-4" style="min-width: 180px">
+            <h5 class="d-block ps-2">Controls</h5>
+            <DxTreeView>
+                <Nodes>
+                    <DxTreeViewNode Text="Office Inspired" Expanded="true">
+                        <Nodes>
+                            <DxTreeViewNode Text="Grid View" Sel>
+                            </DxTreeViewNode>
+                            <DxTreeViewNode Text="Spreadsheet">
+                            </DxTreeViewNode>
+                            <DxTreeViewNode Text="Rich Text Editor">
+                            </DxTreeViewNode>
+                            <DxTreeViewNode Text="Scheduler">
+                            </DxTreeViewNode>
+                            <DxTreeViewNode Text="Product" Sel @onclick="(() => SelectPage(5))" />
+                            <DxTreeViewNode Text="Product List" Sel @onclick="(() => SelectPage(6))" />
+                        </Nodes>
+                    </DxTreeViewNode>
+                    <DxTreeViewNode Text="Analytics">
+                        <Nodes>
+                            <DxTreeViewNode Text="Charting">
+                            </DxTreeViewNode>
+                            <DxTreeViewNode Text="Gauges">
+                            </DxTreeViewNode>
+                            <DxTreeViewNode Text="PivotGrid">
+                            </DxTreeViewNode>
+                        </Nodes>
+                    </DxTreeViewNode>
+                    <DxTreeViewNode Text="Navigation">
+                        <Nodes>
+                            <DxTreeViewNode Text="Menu">
+                            </DxTreeViewNode>
+                            <DxTreeViewNode Text="Navigation Bar">
+                            </DxTreeViewNode>
+                            <DxTreeViewNode Text="Tab Control">
+                            </DxTreeViewNode>
+                            <DxTreeViewNode Text="TreeView">
+                            </DxTreeViewNode>
+                        </Nodes>
+                    </DxTreeViewNode>
+                </Nodes>
+            </DxTreeView>
+        </div>
+        <div class="pt-4 ps-2 d-flex flex-column align-items-end justify-content-between flex-grow-1">
+            @if (isProductView)
+            {
+                <div class="w-100">
+                    <ProductView />
+                </div>
+            }
+            else if (isProductListView)
+            {
+                <div class="w-100">
+                    <ProductListView />
+                </div>
+            }
+            else
+            {
+                <div class="w-100">
+                    <h5 class="mb-3">@Data[ActivePageIndex].Title</h5>
+                    @{
+                        var descriptionParts = Data[ActivePageIndex].Description.Split("\n");
+                        @foreach (var descriptionPart in descriptionParts)
+                        {
+                            <p class="tm-8">@descriptionPart</p>
+                        }
+                    }
+                </div>
+                <div class="w-100 border-top border-light pt-3 d-flex flex-column align-items-end">
+                    <DxPager PageCount="10" VisibleNumericButtonCount="5" @bind-ActivePageIndex="@ActivePageIndex">
+                    </DxPager>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@*<DxPopup Width="420px" HorizontalAlignment="HorizontalAlignment.Center" VerticalAlignment="VerticalAlignment.Center"
+         @bind-Visible="@PopupVisible">
+    <HeaderContentTemplate>
+        <h3>Welcome to DevExpress</h3>
+    </HeaderContentTemplate>
+    <BodyContentTemplate Context="PopupContext">
+        <EditForm Model="@UserData" OnValidSubmit="@HandleValidSubmit" Context="EditFormContext">
+            <DataAnnotationsValidator />
+            <DxFormLayout>
+                <DxFormLayoutItem ColSpanMd="12">
+                    <DxTextBox @bind-Text="@UserData.Username" NullText="Username" ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"/>
+                    <div class="text-danger"><ValidationMessage For="@(() => UserData.Username)" /></div>
+                </DxFormLayoutItem>
+                <DxFormLayoutItem ColSpanMd="12">
+                    <DxTextBox @bind-Text="@UserData.Password" NullText="Password" Password="true" ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"/>
+                    <div class="text-danger"><ValidationMessage For="@(() => UserData.Password)" /></div>
+                </DxFormLayoutItem>
+                <DxFormLayoutItem ColSpanMd="12">
+                    <DxButton CssClass="w-100" Text="Login" RenderStyle="ButtonRenderStyle.Primary" SubmitFormOnClick="true"/>
+                </DxFormLayoutItem>
+            </DxFormLayout>
+        </EditForm>
+    </BodyContentTemplate>
+</DxPopup>*@

@@ -1,0 +1,31 @@
+﻿@using DXApplication1.Module.BusinessObjects.XPO
+<h3>Product</h3>
+
+@if (!dataFetched)
+{
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow='@progressValue.ToString()' aria-valuemin="0" aria-valuemax="100" style='@("width:" + progressValue.ToString())%'></div>
+    </div>
+}
+else
+{
+    <div class="pt-2" style="width: 30%">
+        <DxComboBox Data="@productList"
+                    TextFieldName="@nameof(Product.ProductName)"
+        @bind-Value="@selectedProduct"
+                    CssClass="cw-480" />
+        <p class="demo-text cw-480 mt-2">
+            Selected item: Product Name: = <b>@selectedProduct?.ProductName</b>
+        </p>
+        <ul>
+            <li>@product.ProductName</li>
+            <li>@product.Price.ToString("N2")</li>
+        </ul>
+    </div>
+}
+
+<div class="pt-2">
+    <DxButton Click="GetData" Text="Get Info" SizeMode="SizeMode.Medium" />
+    <DxButton Click="GetProductList" Text="Load All" SizeMode="SizeMode.Medium" />
+    <DxButton Click="ClearData" Text="Clear" SizeMode="SizeMode.Medium" />
+</div>
